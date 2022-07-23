@@ -18,7 +18,7 @@ void main() async {
     const GetMaterialApp(
       title: "Application",
       initialRoute: AppPages.INITIAL,
-      home: HomeView(),
+      home: LoginView(),
     ),
   );
 }

@@ -4,6 +4,7 @@ import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pdf_render/pdf_render_widgets.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:get/get.dart';
 
 class PdfView extends StatefulWidget {
   final String pdf;
@@ -18,8 +19,10 @@ class _PdfViewState extends State<PdfView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(child: AppBar(
-        backgroundColor: Colors.deepOrange[300],
+      appBar: PreferredSize(child:  AppBar(
+        elevation: 1.0,
+        backgroundColor: Colors.white,
+        leading: IconButton(onPressed: () => Get.back(), icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.lightBlue,)),
         title: Container(
           width: double.infinity,
           height: 150,
@@ -27,6 +30,7 @@ class _PdfViewState extends State<PdfView> {
             child: Text('Happy Flutter Learning', style: GoogleFonts.poppins(
               fontSize: 30,
               fontWeight: FontWeight.w500,
+              color: Colors.lightBlue
             ),),
           ),
         ),

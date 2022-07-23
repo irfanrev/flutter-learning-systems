@@ -3,6 +3,7 @@ import 'package:expandable/expandable.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_leasson/app/modules/home/views/pdf_view.dart';
+import 'package:flutter_leasson/app/modules/login/controllers/login_controller.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,13 +18,16 @@ class HomeView extends GetView<HomeController> {
     CollectionReference materi =
         FirebaseFirestore.instance.collection('materi');
 
+
+    final c = Get.put(LoginController());
+
     return Scaffold(
       backgroundColor: Colors.blue[300],
       body: SizedBox.expand(
         child: Row(
           children: [
             Expanded(
-              flex: 1,
+              
               child: Container(
                 padding: EdgeInsets.all(25),
                 color: Colors.blue[300],
@@ -135,7 +139,48 @@ class HomeView extends GetView<HomeController> {
             ),
             Expanded(
               child: Container(
-                color: Colors.deepOrange,
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image:AssetImage('assets/img/code.jpeg',),fit: BoxFit.cover),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () => c.signOut(),
+                        child: Container(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.blue[300],
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.5),
+                                blurRadius: 10,
+                                spreadRadius: 5,
+                                offset: Offset(0, 5),
+                              ),
+                            
+                            ]
+                          ),
+                          child:  const Center(
+                            child: Icon(
+                              Icons.logout_rounded,
+                              color: Colors.white,  
+                              size: 30,
+                            ),
+                          ),
+                          
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],

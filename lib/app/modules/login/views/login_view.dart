@@ -12,6 +12,9 @@ class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(LoginController());
+
     return Scaffold(
       body: SizedBox.expand(
           child: Row(
@@ -106,6 +109,7 @@ class LoginView extends GetView<LoginController> {
                             ),
                             Expanded(
                               child: TextFormField(
+                                controller: controller.emailC,
                                 decoration: InputDecoration.collapsed(
                                   hintText: "Masukan Email Anda",
                                   hintStyle: TextStyle(
@@ -150,6 +154,7 @@ class LoginView extends GetView<LoginController> {
                             ),
                             Expanded(
                               child: TextFormField(
+                                controller: controller.passC,
                                 obscureText: true,
                                 decoration: InputDecoration.collapsed(
                                   hintText: "Masukan Password Anda",
@@ -167,7 +172,7 @@ class LoginView extends GetView<LoginController> {
                       height: 30,
                     ),
                     InkWell(
-                      onTap: () => Get.offAll(HomeView()),
+                      onTap: () => controller.signIn(),
                       child: Container(
                         width: 400,
                         height: 55,

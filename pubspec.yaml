@@ -17,6 +17,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^20.2.39-beta
   pdf_render: ^1.1.0
   flutter_widget_from_html_core: ^0.8.5+3
+  firebase_auth: ^3.5.0
 
 dev_dependencies: 
   flutter_lints: 2.0.1
