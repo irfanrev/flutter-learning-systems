@@ -16,6 +16,7 @@ void main() async {
 
   runApp(
     const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Application",
       initialRoute: AppPages.INITIAL,
       home: LoginView(),
